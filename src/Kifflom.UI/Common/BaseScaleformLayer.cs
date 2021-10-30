@@ -11,6 +11,7 @@ namespace Kifflom.UI.Common
         /// <inheritdoc />
         protected BaseScaleformLayer(string scaleform) : base(scaleform)
         {
+            base.Visible = false;
         }
 
         /// <inheritdoc />
