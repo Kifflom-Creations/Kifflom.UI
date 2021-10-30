@@ -39,6 +39,10 @@ namespace Kifflom.UI.Scaleforms
             _layerMain = new CelebrationLayer(CelebrationLayerEnum.Main, _items);
             _layerBack = new CelebrationLayer(CelebrationLayerEnum.Background, _items);
             _layerFront = new CelebrationLayer(CelebrationLayerEnum.Foreground, _items);
+
+            _layerMain.LayerHidden += (sender, args) => _visible = false;
+
+            Duration = duration;
         }
 
         /// <summary>

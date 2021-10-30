@@ -14,6 +14,16 @@ namespace Kifflom.UI.Common
             base.Visible = false;
         }
 
+        /// <summary>
+        /// Triggers when the Layer is being shown.
+        /// </summary>
+        public event EventHandler LayerShown;
+
+        /// <summary>
+        /// Triggers when the Layer is being hidden.
+        /// </summary>
+        public event EventHandler LayerHidden;
+
         /// <inheritdoc />
         public bool IsLoading { get; set; }
 
@@ -67,10 +77,15 @@ namespace Kifflom.UI.Common
 
             Visible = true;
             IsLoading = false;
+            
+            LayerShown?.Invoke(this, EventArgs.Empty);
         }
 
         /// <inheritdoc />
-        public abstract void Hide();
+        public virtual void Hide()
+        {
+            LayerHidden?.Invoke(this, EventArgs.Empty);
+        }
 
         /// <inheritdoc />
         protected override void Update()

@@ -82,6 +82,8 @@ namespace Kifflom.UI.Scaleforms
 
             _durationValue = 0;
             _duration = -1;
+            
+            base.Hide();
 
             Unload();
         }
