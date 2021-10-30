@@ -20,12 +20,18 @@ namespace Kifflom.UI.Scaleforms
 
         private bool _visible = true;
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Construct a Celebration.
+        /// </summary>
         public Celebration() : this(3)
         {
 
         }
 
+        /// <summary>
+        /// Construct a Celebration.
+        /// </summary>
+        /// <param name="duration">The duration each item on the wall is on the screen.</param>
         public Celebration(int duration)
         {
             _items = new List<Action<CelebrationLayer>>();
@@ -35,6 +41,9 @@ namespace Kifflom.UI.Scaleforms
             _layerFront = new CelebrationLayer(CelebrationLayerEnum.Foreground, _items);
         }
 
+        /// <summary>
+        /// The duration of each item on the wall.
+        /// </summary>
         public int Duration
         {
             get => _layerMain.Duration;
@@ -57,7 +66,7 @@ namespace Kifflom.UI.Scaleforms
                 {
                     _layerMain.Hide();
                     _layerBack.Hide();
-                    _layerMain.Hide();
+                    _layerFront.Hide();
                 }
             }
         }
@@ -76,13 +85,13 @@ namespace Kifflom.UI.Scaleforms
             {
                 _layerMain.Load();
                 _layerBack.Load();
-                _layerMain.Load();
+                _layerFront.Load();
             }
             else if (_layerMain.IsReady && _layerBack.IsReady && _layerFront.IsReady)
             {
                 _layerMain.Show();
                 _layerBack.Show();
-                _layerMain.Show();
+                _layerFront.Show();
             }
 
             _layerBack.Process();
