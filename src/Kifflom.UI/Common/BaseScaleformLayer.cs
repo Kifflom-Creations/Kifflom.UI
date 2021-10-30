@@ -9,7 +9,7 @@ namespace Kifflom.UI.Common
     public abstract class BaseScaleformLayer : BaseScaleform, IScaleformLayer
     {
         /// <inheritdoc />
-        protected BaseScaleformLayer(string scaleform) : base(scaleform)
+        protected BaseScaleformLayer(string scaleform) : base(scaleform, false)
         {
             base.Visible = false;
         }

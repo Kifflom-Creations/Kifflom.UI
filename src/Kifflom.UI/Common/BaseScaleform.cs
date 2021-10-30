@@ -14,11 +14,12 @@ namespace Kifflom.UI.Common
         /// Create a scaleform with a given name.
         /// </summary>
         /// <param name="scaleform">The name of the scaleform.</param>
-        protected BaseScaleform(string scaleform)
+        /// <param name="load">Whether the scaleform will be loaded in the constructor.</param>
+        protected BaseScaleform(string scaleform, bool load = true)
         {
             Name = scaleform;
 
-            LoadScaleform();
+            if (load) LoadScaleform();
         }
 
         /// <inheritdoc />
@@ -174,7 +175,7 @@ namespace Kifflom.UI.Common
             return API.EndScaleformMovieMethodReturnValue();
 #endif
         }
-        
+
         /// <summary>
         /// Update the scaleform.
         /// </summary>
