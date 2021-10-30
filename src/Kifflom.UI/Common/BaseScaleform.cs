@@ -182,15 +182,18 @@ namespace Kifflom.UI.Common
         protected abstract void Update();
 
         /// <inheritdoc />
-        public void Process() => Draw();
-
-        /// <inheritdoc />
-        public void Draw()
+        public void Process()
         {
             if (!Visible) return;
 
             Update();
 
+            Draw();
+        }
+
+        /// <inheritdoc />
+        public virtual void Draw()
+        {
 #if FIVEM
             API.DrawScaleformMovieFullscreen(Handle, 255, 255, 255, 255, 0);
 #endif
