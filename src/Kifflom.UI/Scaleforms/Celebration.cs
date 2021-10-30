@@ -62,6 +62,11 @@ namespace Kifflom.UI.Scaleforms
             }
         }
 
+        /// <summary>
+        /// Whether the Celebration is active now.
+        /// </summary>
+        public bool Active => _layerMain.Visible;
+
         /// <inheritdoc />
         public void Process()
         {
