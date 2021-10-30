@@ -29,9 +29,9 @@ namespace Kifflom.UI.Scaleforms
         {
             _items = new List<Action<CelebrationLayer>>();
 
-            Add(new CelebrationLayer(CelebrationLayerEnum.Main, _items));
             Add(new CelebrationLayer(CelebrationLayerEnum.Background, _items));
             Add(new CelebrationLayer(CelebrationLayerEnum.Foreground, _items));
+            Add(new CelebrationLayer(CelebrationLayerEnum.Main, _items));
 
             Duration = duration;
         }
