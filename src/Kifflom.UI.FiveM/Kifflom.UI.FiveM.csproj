@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="../src.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net452</TargetFramework>
+        <AssemblyName>$(AssemblyName).net</AssemblyName>
+        <DefineConstants>FIVEM</DefineConstants>
+
+        <PackageId>Kifflom.UI.FiveM</PackageId>
+        <Description>UI system for Grand Theft Auto V. This package is for FiveM Client.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CitizenFX.Core.Client" Version="1.0.4355">
+            <IncludeAssets>compile</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>

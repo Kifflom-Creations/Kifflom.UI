@@ -1,0 +1,34 @@
+﻿<Project>
+    <PropertyGroup>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <AssemblyName>$(AssemblyName)</AssemblyName>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DebugType>embedded</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>Sander Jochems</Authors>
+        <Company>Sander Jochems</Company>
+        <Product>Kifflom.UI</Product>
+        <Description>UI system for Grand Theft Auto V.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/Kifflom-Creations/Kifflom.UI</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Kifflom-Creations/Kifflom.UI.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <NeutralLanguage>en-US</NeutralLanguage>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="$(ProjectDir)/../Kifflom.UI/**/*.cs"/>
+    </ItemGroup>
+</Project>
