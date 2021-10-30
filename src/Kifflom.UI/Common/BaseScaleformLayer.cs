@@ -14,14 +14,10 @@ namespace Kifflom.UI.Common
             base.Visible = false;
         }
 
-        /// <summary>
-        /// Triggers when the Layer is being shown.
-        /// </summary>
+        /// <inheritdoc />
         public event EventHandler LayerShown;
 
-        /// <summary>
-        /// Triggers when the Layer is being hidden.
-        /// </summary>
+        /// <inheritdoc />
         public event EventHandler LayerHidden;
 
         /// <inheritdoc />

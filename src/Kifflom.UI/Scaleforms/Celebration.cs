@@ -10,22 +10,15 @@ namespace Kifflom.UI.Scaleforms
     /// <summary>
     /// Celebration processable to create and show a wall of items.
     /// </summary>
-    public class Celebration : IProcessable
+    public class Celebration : BaseMultiLayer<CelebrationLayer>
     {
-        private readonly CelebrationLayer _layerMain;
-        private readonly CelebrationLayer _layerBack;
-        private readonly CelebrationLayer _layerFront;
-
         private readonly List<Action<CelebrationLayer>> _items;
-
-        private bool _visible;
 
         /// <summary>
         /// Construct a Celebration.
         /// </summary>
         public Celebration() : this(3)
         {
-
         }
 
         /// <summary>
@@ -36,11 +29,9 @@ namespace Kifflom.UI.Scaleforms
         {
             _items = new List<Action<CelebrationLayer>>();
 
-            _layerMain = new CelebrationLayer(CelebrationLayerEnum.Main, _items);
-            _layerBack = new CelebrationLayer(CelebrationLayerEnum.Background, _items);
-            _layerFront = new CelebrationLayer(CelebrationLayerEnum.Foreground, _items);
-
-            _layerMain.LayerHidden += (sender, args) => _visible = false;
+            Add(new CelebrationLayer(CelebrationLayerEnum.Main, _items));
+            Add(new CelebrationLayer(CelebrationLayerEnum.Background, _items));
+            Add(new CelebrationLayer(CelebrationLayerEnum.Foreground, _items));
 
             Duration = duration;
         }
@@ -50,57 +41,14 @@ namespace Kifflom.UI.Scaleforms
         /// </summary>
         public int Duration
         {
-            get => _layerMain.Duration;
+            get => Layers[0].Duration;
             set
             {
-                _layerMain.Duration = value;
-                _layerBack.Duration = value;
-                _layerFront.Duration = value;
-            }
-        }
-
-        /// <inheritdoc />
-        public bool Visible
-        {
-            get => _visible;
-            set
-            {
-                _visible = value;
-                if (!value)
+                foreach (var layer in Layers)
                 {
-                    _layerMain.Hide();
-                    _layerBack.Hide();
-                    _layerFront.Hide();
+                    layer.Duration = value;
                 }
             }
-        }
-
-        /// <summary>
-        /// Whether the Celebration is active now.
-        /// </summary>
-        public bool Active => _layerMain.Visible;
-
-        /// <inheritdoc />
-        public void Process()
-        {
-            if (!Visible) return;
-
-            if (_layerMain.NeedsLoading)
-            {
-                _layerMain.Load();
-                _layerBack.Load();
-                _layerFront.Load();
-            }
-            else if (_layerMain.IsReady && _layerBack.IsReady && _layerFront.IsReady)
-            {
-                _layerMain.Show();
-                _layerBack.Show();
-                _layerFront.Show();
-            }
-
-            _layerBack.Process();
-            _layerFront.Process();
-            _layerMain.Process();
         }
 
         /// <summary>

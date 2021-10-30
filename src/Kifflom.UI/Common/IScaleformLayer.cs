@@ -1,10 +1,22 @@
-﻿namespace Kifflom.UI.Common
+﻿using System;
+
+namespace Kifflom.UI.Common
 {
     /// <summary>
     /// Interface for a Layer that contains a Scaleform.
     /// </summary>
-    public interface IScaleformLayer
+    public interface IScaleformLayer : IScaleform
     {
+        /// <summary>
+        /// Triggers when the Layer is being shown.
+        /// </summary>
+        event EventHandler LayerShown;
+
+        /// <summary>
+        /// Triggers when the Layer is being hidden.
+        /// </summary>
+        event EventHandler LayerHidden;
+        
         /// <summary>
         /// Whether the Scaleform is being loaded.
         /// </summary>
