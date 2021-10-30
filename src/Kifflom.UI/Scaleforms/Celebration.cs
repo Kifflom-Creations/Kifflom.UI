@@ -18,7 +18,7 @@ namespace Kifflom.UI.Scaleforms
 
         private readonly List<Action<CelebrationLayer>> _items;
 
-        private bool _visible = true;
+        private bool _visible;
 
         /// <summary>
         /// Construct a Celebration.
