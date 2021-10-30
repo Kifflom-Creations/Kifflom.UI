@@ -81,7 +81,7 @@ namespace Kifflom.UI.Scaleforms
         {
             if (!Visible) return;
 
-            if (!_layerMain.NeedsLoading)
+            if (_layerMain.NeedsLoading)
             {
                 _layerMain.Load();
                 _layerBack.Load();
