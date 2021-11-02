@@ -335,8 +335,19 @@ namespace Kifflom.UI.Scaleforms
     /// </summary>
     public enum CelebrationLayerEnum
     {
+        /// <summary>
+        /// The main layer of the Celebration
+        /// </summary>
         Main,
+
+        /// <summary>
+        /// The background layer of the Celebration
+        /// </summary>
         Background,
+
+        /// <summary>
+        /// The foreground layer of the Celebration
+        /// </summary>
         Foreground,
     }
 
