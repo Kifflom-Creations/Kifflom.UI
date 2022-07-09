@@ -6,6 +6,10 @@ on:
       - main
     tags:
       - v*
+  pull_request:
+    branches:
+      - main
+
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: true
   MSBUILDSINGLELOADCONTEXT: 1
@@ -57,6 +61,7 @@ jobs:
     name: 'Publish'
     needs: build
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'push' }}
     steps:
       - name: 'Download NuGet packages'
         uses: actions/download-artifact@v3
