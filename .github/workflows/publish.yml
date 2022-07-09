@@ -61,7 +61,7 @@ jobs:
     name: 'Publish'
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'push' }}
+    if: ${{ github.event_name == 'push' }}
     steps:
       - name: 'Download NuGet packages'
         uses: actions/download-artifact@v3
