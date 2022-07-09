@@ -63,9 +63,6 @@ jobs:
         with:
           name: packages
           path: packages
-      - name: 'Display structure of NuGet packages'
-        run: ls -R
-        working-directory: packages
       - name: 'Publish the package to Nuget.org'
         if: startsWith(github.ref, 'refs/tags/v')
         run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key "${{ secrets.NUGET_API_KEY }}" --skip-duplicate --no-symbols true
