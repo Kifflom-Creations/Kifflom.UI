@@ -15,7 +15,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -23,7 +23,6 @@
         <Company>Sander Jochems</Company>
         <Product>Kifflom.UI</Product>
         <Description>UI system for Grand Theft Auto V.</Description>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/Kifflom-Creations/Kifflom.UI</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Kifflom-Creations/Kifflom.UI.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
