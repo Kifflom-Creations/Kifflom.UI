@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CitizenFX.Core.Client" Version="1.0.4355">
+        <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5712">
             <IncludeAssets>compile</IncludeAssets>
         </PackageReference>
     </ItemGroup>
