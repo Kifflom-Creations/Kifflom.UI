@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: 'Restore dotnet tools'
@@ -24,7 +24,7 @@ jobs:
       - name: 'Generate version info from git history'
         run: dotnet gitversion /output json | jq -r 'to_entries|map("GitVersion_\(.key)=\(.value|tostring)")|.[]' >> gitversion.env && cat gitversion.env
       - name: 'Upload version info file'
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: gitversion
           path: gitversion.env
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 'Download version info file'
         uses: actions/download-artifact@v1
         with:
@@ -47,8 +47,8 @@ jobs:
         run: echo "Current version is \"$GitVersion_SemVer\"" && dotnet build -c Release
       - name: 'Create NuGet packages'
         run: dotnet pack -c Release --no-build -o nupkg
-      - name: 'Upload nuget packages'
-        uses: actions/upload-artifact@v1
+      - name: 'Upload NuGet packages'
+        uses: actions/upload-artifact@v3
         with:
           name: nupkg
           path: nupkg
@@ -59,11 +59,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v2
-      - name: 'Download nuget packages'
-        uses: actions/download-artifact@v1
+        uses: actions/checkout@v3
+      - name: 'Download NuGet packages'
+        uses: actions/download-artifact@v3
         with:
           name: nupkg
+          path: nupkg
       - name: 'Publish the package to Nuget.org'
         if: startsWith(github.ref, 'refs/tags/v')
         run: dotnet nuget push "./nupkg/*.nupkg" --source https://api.nuget.org/v3/index.json --api-key "${{ secrets.NUGET_API_KEY }}" --skip-duplicate --no-symbols true
