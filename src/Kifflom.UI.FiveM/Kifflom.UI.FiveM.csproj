@@ -3,7 +3,7 @@
 
     <PropertyGroup>
         <TargetFramework>net452</TargetFramework>
-        <AssemblyName>$(AssemblyName).net</AssemblyName>
+        <!--<AssemblyName>$(AssemblyName).net</AssemblyName>-->
         <DefineConstants>FIVEM</DefineConstants>
 
         <PackageId>Kifflom.UI.FiveM</PackageId>
@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5712">
+        <PackageReference Include="CitizenFX.Core.Client" Version="1.0.5777">
             <IncludeAssets>compile</IncludeAssets>
         </PackageReference>
     </ItemGroup>
